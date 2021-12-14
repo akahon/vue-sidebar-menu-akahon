@@ -34,7 +34,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 ## Demo
 [View demo](https://akahon.github.io/vue-sidebar-menu-akahon/)
 
-[![demo](https://raw.githubusercontent.com/akahon/vue-sidebar-menu-akahon/src/assets/img/demo.gif)](https://akahon.github.io/vue-sidebar-menu-akahon/)
+[![demo](https://raw.githubusercontent.com/akahon/vue-sidebar-menu-akahon/main/src/assets/img/demo.gif)](https://akahon.github.io/vue-sidebar-menu-akahon/)
 ## Install
 
 ```bash
