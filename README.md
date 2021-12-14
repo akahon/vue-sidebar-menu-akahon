@@ -136,6 +136,9 @@ Event | Output |  Description
 button-exit-clicked | - | Background color
 search-input-emit | String | Background color
 
+#### Thanks for design
+[Prem Shahi](https://www.codinglabweb.com/2021/04/responsive-side-navigation-bar-in-html.html)
+
 ## License
 [The MIT License](http://opensource.org/licenses/MIT)
 

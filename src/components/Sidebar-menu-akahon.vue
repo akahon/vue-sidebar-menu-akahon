@@ -190,7 +190,6 @@ import 'vue2-perfect-scrollbar/dist/vue2-perfect-scrollbar.css'
         type: String,
         default: require('@/assets/img/photo.jpg'),
       },
-      // default: 'Prem Shahi'
       profileName: {
         type: String,
         default: 'Fayzullo Saidakbarov',
