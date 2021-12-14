@@ -41,5 +41,8 @@
   "bugs": {
     "url": "https://github.com/akahon/vue-sidebar-menu-akahon/issues"
   },
+  "publishConfig": {
+    "registry": "https://www.npmjs.com/package/vue-sidebar-menu-akahon"
+  },
   "homepage": "https://github.com/akahon/vue-sidebar-menu-akahon#readme"
 }
