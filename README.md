@@ -27,7 +27,8 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 # vue-sidebar-menu-akahon
 
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
-
+[![Latest Version on NPM](https://img.shields.io/npm/v/vue-sidebar-menu-akahon.svg?style=flat-square)](https://www.npmjs.com/package/vue-sidebar-menu-akahon)
+[![npm](https://img.shields.io/npm/dt/vue-sidebar-menu-akahon.svg?style=flat-square)](https://www.npmjs.com/package/vue-sidebar-menu-akahon)
 [![Vue 2.x](https://img.shields.io/badge/vue-2.x-brightgreen.svg?style=flat-square)](https://vuejs.org)
 
 > A Vue.js sidebar menu component. 

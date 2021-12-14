@@ -1,7 +1,7 @@
 {
   "name": "vue-sidebar-menu-akahon",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -23,5 +23,23 @@
     "eslint-plugin-vue": "^6.2.2",
     "prettier": "^2.2.1",
     "vue-template-compiler": "^2.6.11"
-  }
+  },
+  "description": "## Project setup ``` npm install ```",
+  "main": ".eslintrc.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/akahon/vue-sidebar-menu-akahon.git"
+  },
+  "keywords": [
+    "sidebar",
+    "menu",
+    "akahon",
+    "vue"
+  ],
+  "author": "Fayzullo Saidakbarov (akahon)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/akahon/vue-sidebar-menu-akahon/issues"
+  },
+  "homepage": "https://github.com/akahon/vue-sidebar-menu-akahon#readme"
 }

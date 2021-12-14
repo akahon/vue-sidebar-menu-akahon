@@ -1,6 +1,6 @@
 <template>
   <div>
-    <sidebar-menu-akahon @search-input-emit="va" />
+    <sidebar-menu-akahon @search-input-emit="search" />
   </div>
 </template>
 
@@ -13,8 +13,8 @@ export default {
     SidebarMenuAkahon,
   },
   methods: {
-    va(val) {
-      console.log('va', val)
+    search(val) {
+      
     }
   }
 }
