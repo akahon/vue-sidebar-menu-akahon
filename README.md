@@ -80,12 +80,11 @@ Vue.component('vue-sidebar-menu-akahon', VueSidebarMenuAkahon);
 ```
 
 ## Props
-You can use icons in [boxicons](https://boxicons.com/)
+You can use icons from [boxicons](https://boxicons.com/)
 ### Menu settings
 
 Props (Parameter) | Type | Default | Description
 --------- | ---- | ------- | -----------
-v-model (*required*) | `String, Number` | - | target input value
 isMenuOpen | `Boolean` | `true` | Open/Close menu
 menuTitle | `String` | `'Akahon'` | Menu title 
 menuLogo | `String` | - | Logo
@@ -102,8 +101,8 @@ menuItems | `Array` | [{link: '#',name: 'Dashboard', tooltip: 'Dashboard', icon:
 Props (Parameter) | Type | Default | Description
 --------- | ---- | ------- | -----------
 isSearch | `Boolean` | `true` | Enable/Disable search input
-searchPlaceholder | `String` | `'Search...'` | Placeholder search input
-searchTooltip | `String` | `'Search'` | Tooltip search input
+searchPlaceholder | `String` | `'Search...'` | Search input placeholder
+searchTooltip | `String` | `'Search'` | Search input tooltip
 
 ### Profile detailes
 
@@ -111,7 +110,7 @@ Props (Parameter) | Type | Default | Description
 --------- | ---- | ------- | -----------
 profileImg | `String` | `'@/assets/img/photo.jpg'` | Profile avatar
 profileName | `String` | `'Fayzullo Saidakbarov'` | Profile full name
-profileRole | `String` | `'Frontend vue developer'` | Role profile
+profileRole | `String` | `'Frontend vue developer'` | Profile role title
 isExitButton | `Boolean` | `true` | Enable/Disable exit button
 
 ### Styles
@@ -133,8 +132,8 @@ menuFooterTextColor | `String` | `'#fff'` |
 
 Event | Output |  Description
 --------- | ---- | -----------
-button-exit-clicked | - | Background color
-search-input-emit | String | Background color
+button-exit-clicked | - | Emitted when the exit button has been clicked
+search-input-emit | String | Emitted when user types in the search input
 
 #### Thanks for design
 [Prem Shahi](https://www.codinglabweb.com/2021/04/responsive-side-navigation-bar-in-html.html)
