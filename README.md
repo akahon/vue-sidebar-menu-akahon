@@ -1,31 +1,4 @@
 # vue-sidebar-menu-akahon
-> A Vue.js sidebar menu component. 
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
-
-# vue-sidebar-menu-akahon
 
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 [![Latest Version on NPM](https://img.shields.io/npm/v/vue-sidebar-menu-akahon.svg?style=flat-square)](https://www.npmjs.com/package/vue-sidebar-menu-akahon)
@@ -79,6 +52,28 @@ Vue.component('vue-sidebar-menu-akahon', VueSidebarMenuAkahon);
   }
 </script>
 ```
+## Project setup
+```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).
 
 ## Props
 You can use icons from [boxicons](https://boxicons.com/)
