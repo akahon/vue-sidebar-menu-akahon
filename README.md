@@ -1,4 +1,5 @@
 # vue-sidebar-menu-akahon
+> A Vue.js sidebar menu component. 
 
 ## Project setup
 ```
