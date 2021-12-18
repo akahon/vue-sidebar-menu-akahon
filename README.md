@@ -7,7 +7,7 @@
 
 > A Vue.js sidebar menu component. 
 ## Demo
-[View demo](https://akahon.github.io/vue-sidebar-menu-akahon/)
+[View demo](https://akahon.github.io/vue-sidebar-menu-akahon/) | [Sandbox](https://codesandbox.io/s/misty-architecture-hyuk5?file=/src/App.vue)
 
 [![demo](https://raw.githubusercontent.com/akahon/vue-sidebar-menu-akahon/main/src/assets/img/demo.gif)](https://akahon.github.io/vue-sidebar-menu-akahon/)
 ## Install
