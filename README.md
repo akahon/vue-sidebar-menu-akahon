@@ -94,7 +94,7 @@ menuIcon | `String` | `'bxl-c-plus-plus'` | Icon (boxicons)
 
 Props (Parameter) | Type | Default | Description
 --------- | ---- | ------- | -----------
-menuItems | `Array` | [{link: '#',name: 'Dashboard', tooltip: 'Dashboard', icon: 'bx-grid-alt' }] | Items
+menuItems | `Array` | `[{link: "#",name: "Dashboard", tooltip: "Dashboard", icon: "bx-grid-alt" }]` | Items
 
 ### Search
 

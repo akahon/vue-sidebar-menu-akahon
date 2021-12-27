@@ -4,7 +4,10 @@
     :class="isOpened ? 'open' : ''"
     :style="cssVars"
   >
-    <div class="logo-details">
+    <div
+      class="logo-details"
+      style="margin: 6px 14px 0 14px;"
+    >
       <img
         v-if="menuLogo"
         :src="menuLogo"
@@ -26,75 +29,81 @@
         @click="isOpened = !isOpened"
       />
     </div>
-    <perfect-scrollbar
-      style="height: 87vh;"
-      :options="{ suppressScrollX: true }"
-    >
-      <ul class="nav-list">
-        <li
-          v-if="isSearch"
-          @click="isOpened = true"
-        >
-          <i class="bx bx-search" />
-          <input
-            type="text"
-            :placeholder="searchPlaceholder"
-            @input="$emit('search-input-emit', $event.target.value)"
-          >
-          <span class="tooltip">{{ searchTooltip }}</span>
-        </li>
 
-        <span
-          v-for="(menuItem, index) in menuItems"
-          :key="index"
+    <div style="display: flex ; flex-direction:column; justify-content: space-between; flex-grow: 1; max-height: calc(100% - 60px); ">
+      <div
+        id="my-scroll"
+        style="margin: 6px 14px 0 14px;"
+      >
+        <ul
+          class="nav-list"
+          style="overflow: visible;"
         >
-          <li>
-            <a :href="menuItem.link">
-              <i
-                class="bx"
-                :class="menuItem.icon || 'bx-square-rounded'"
-              />
-              <span class="links_name">{{ menuItem.name }}</span>
-            </a>
-            <span class="tooltip">{{ menuItem.tooltip || menuItem.name }}</span>
+          <li
+            v-if="isSearch"
+            @click="isOpened = true"
+          >
+            <i class="bx bx-search" />
+            <input
+              type="text"
+              :placeholder="searchPlaceholder"
+              @input="$emit('search-input-emit', $event.target.value)"
+            >
+            <span class="tooltip">{{ searchTooltip }}</span>
           </li>
-        </span>
-      </ul>
-    </perfect-scrollbar>
-    <div class="profile">
-      <div class="profile-details">
-        <img
-          v-if="profileImg"
-          :src="profileImg"
-          alt="profileImg"
-        >
-        <i
-          v-else
-          class="bx bxs-user-rectangle"
-        />
-        <div class="name_job">
-          <div class="name">
-            {{ profileName }}
-          </div>
-          <div class="job">
-            {{ profileRole }}
+
+          <span
+            v-for="(menuItem, index) in menuItems"
+            :key="index"
+          >
+            <li>
+              <a :href="menuItem.link">
+                <i
+                  class="bx"
+                  :class="menuItem.icon || 'bx-square-rounded'"
+                />
+                <span class="links_name">{{ menuItem.name }}</span>
+              </a>
+              <span class="tooltip">{{ menuItem.tooltip || menuItem.name }}</span>
+            </li>
+          </span>
+        </ul>
+      </div>
+      
+      <div
+        class="profile" 
+      >
+        <div class="profile-details">
+          <img
+            v-if="profileImg"
+            :src="profileImg"
+            alt="profileImg"
+          >
+          <i
+            v-else
+            class="bx bxs-user-rectangle"
+          />
+          <div class="name_job">
+            <div class="name">
+              {{ profileName }}
+            </div>
+            <div class="job">
+              {{ profileRole }}
+            </div>
           </div>
         </div>
+        <i
+          v-if="isExitButton"
+          class="bx bx-log-out"
+          id="log_out"
+          @click.stop="$emit('button-exit-clicked')"
+        />
       </div>
-      <i
-        v-if="isExitButton"
-        class="bx bx-log-out"
-        id="log_out"
-        @click.stop="$emit('button-exit-clicked')"
-      />
     </div>
   </div>
 </template>
 
 <script>
-import { PerfectScrollbar } from 'vue2-perfect-scrollbar'
-import 'vue2-perfect-scrollbar/dist/vue2-perfect-scrollbar.css'
-
   export default {
     name: 'SidebarMenuAkahon',
     props: {
@@ -114,6 +123,18 @@ import 'vue2-perfect-scrollbar/dist/vue2-perfect-scrollbar.css'
       menuIcon: {
         type: String,
         default: 'bxl-c-plus-plus',
+      },
+      isPaddingLeft: {
+        type: Boolean,
+        default: true,
+      },
+       menuOpenedPaddingLeftBody: {
+        type: String,
+        default: '250px'
+      },
+      menuClosedPaddingLeftBody: {
+        type: String,
+        default: '78px'
       },
 
       //! Menu items
@@ -245,9 +266,6 @@ import 'vue2-perfect-scrollbar/dist/vue2-perfect-scrollbar.css'
         default: '#fff',
       },
     },
-    components: {
-      PerfectScrollbar
-    },
     data() {
       return {
         isOpened: false
@@ -257,17 +275,9 @@ import 'vue2-perfect-scrollbar/dist/vue2-perfect-scrollbar.css'
       this.isOpened = this.isMenuOpen
     },
     computed: {
-      // isOpened: {
-      //   get: function () {
-      //     return this.isMenuOpen
-      //   },
-      //   // setter
-      //   set: function (newValue) {
-      //     this.isMenuOpen = newValue
-      //   },
-      // },
       cssVars() {
         return {
+          // '--padding-left-body': this.isOpened ? this.menuOpenedPaddingLeftBody : this.menuClosedPaddingLeftBody,
           '--bg-color': this.bgColor,
           '--secondary-color': this.secondaryColor,
           '--home-section-color': this.homeSectionColor,
@@ -281,6 +291,11 @@ import 'vue2-perfect-scrollbar/dist/vue2-perfect-scrollbar.css'
         }
       },
     },
+    watch: {
+      isOpened() {
+        window.document.body.style.paddingLeft = this.isOpened && this.isPaddingLeft ? this.menuOpenedPaddingLeftBody : this.menuClosedPaddingLeftBody
+      }
+    }
   }
 </script>
 
@@ -294,11 +309,17 @@ import 'vue2-perfect-scrollbar/dist/vue2-perfect-scrollbar.css'
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
   }
+  body {
+    transition: all 0.5s ease;
+  }
   .menu-logo {
     width: 30px;
     margin: 0 10px 0 10px;
   }
   .sidebar {
+    position: relative;
+    display: flex;
+    flex-direction: column;
     position: fixed;
     left: 0;
     top: 0;
@@ -307,7 +328,7 @@ import 'vue2-perfect-scrollbar/dist/vue2-perfect-scrollbar.css'
     /* overflow-y: auto; */
     width: 78px;
     background: var(--bg-color);
-    padding: 6px 14px;
+    /* padding: 6px 14px 0 14px; */
     z-index: 99;
     transition: all 0.5s ease;
   }
@@ -467,11 +488,11 @@ import 'vue2-perfect-scrollbar/dist/vue2-perfect-scrollbar.css'
     border-radius: 12px;
   }
   .sidebar div.profile {
-    position: fixed;
+    position: relative;
     height: 60px;
     width: 78px;
-    left: 0;
-    bottom: 0;
+    /* left: 0;
+    bottom: 0; */
     padding: 10px 14px;
     background: var(--secondary-color);
     transition: all 0.5s ease;
@@ -526,6 +547,9 @@ import 'vue2-perfect-scrollbar/dist/vue2-perfect-scrollbar.css'
     opacity: 1;
     color: red;
   }
+  .sidebar .profile #log_out:hover {
+    color: red;
+  }
   .home-section {
     position: relative;
     background: var(--home-section-color);
@@ -547,9 +571,34 @@ import 'vue2-perfect-scrollbar/dist/vue2-perfect-scrollbar.css'
     font-weight: 500;
     margin: 18px;
   }
+  .my-scroll-active {
+    overflow-y: auto;
+  }
+  #my-scroll {
+    overflow-y: auto;
+    height: calc(100% - 60px);
+  }
+  #my-scroll::-webkit-scrollbar{
+    display:none;
+    /* background-color: rgba(255, 255, 255, 0.2); 
+    width: 10px;
+    border-radius:5px  */
+  }
+  /* #my-scroll::-webkit-scrollbar-thumb{
+    background-color: red;
+    border-radius:5px 
+  }
+  #my-scroll::-webkit-scrollbar-button:vertical:start:decrement{
+    display:none;
+  }
+  #my-scroll::-webkit-scrollbar-button:vertical:end:increment{
+    display:none;
+  } */
   @media (max-width: 420px) {
     .sidebar li .tooltip {
       display: none;
     }
-  }
+}
+
+
 </style>

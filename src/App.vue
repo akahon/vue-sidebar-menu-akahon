@@ -1,6 +1,8 @@
 <template>
   <div>
-    <sidebar-menu-akahon @search-input-emit="search" />
+    <sidebar-menu-akahon 
+      @search-input-emit="search"
+    />
   </div>
 </template>
 
