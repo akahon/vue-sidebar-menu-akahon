@@ -71,6 +71,7 @@
       </div>
       
       <div
+        v-if="isLoggedIn"
         class="profile" 
       >
         <div class="profile-details">
