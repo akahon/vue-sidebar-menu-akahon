@@ -223,6 +223,10 @@
         type: Boolean,
         default: true,
       },
+      isLoggedIn: {
+        type: Boolean,
+        default: true,
+      },
 
       //! Styles
       bgColor: {
