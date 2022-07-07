@@ -71,6 +71,7 @@
       </div>
       
       <div
+        v-if="isLoggedIn"
         class="profile" 
       >
         <div class="profile-details">
@@ -220,6 +221,10 @@
         default: 'Frontend vue developer',
       },
       isExitButton: {
+        type: Boolean,
+        default: true,
+      },
+      isLoggedIn: {
         type: Boolean,
         default: true,
       },
