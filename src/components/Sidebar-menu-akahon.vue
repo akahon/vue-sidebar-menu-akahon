@@ -6,7 +6,7 @@
   >
     <div
       class="logo-details"
-      style="margin: 6px 14px 0 14px;"
+      style="margin: 6px 14px 0 14px"
     >
       <img
         v-if="menuLogo"
@@ -30,16 +30,25 @@
       />
     </div>
 
-    <div style="display: flex ; flex-direction:column; justify-content: space-between; flex-grow: 1; max-height: calc(100% - 60px); ">
+    <div
+      style="
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        flex-grow: 1;
+        max-height: calc(100% - 60px);
+      "
+    >
       <div
         id="my-scroll"
-        style="margin: 6px 14px 0 14px;"
+        style="margin: 6px 14px 0 14px"
       >
         <ul
           class="nav-list"
-          style="overflow: visible;"
+          style="overflow: visible"
         >
           <li
+            id="links_search"
             v-if="isSearch"
             @click="isOpened = true"
           >
@@ -49,30 +58,37 @@
               :placeholder="searchPlaceholder"
               @input="$emit('search-input-emit', $event.target.value)"
             >
-            <span class="tooltip">{{ searchTooltip }}</span>
+            <span
+              data-target="links_search"
+              class="tooltip"
+            >{{ searchTooltip }}</span>
           </li>
 
-          <span
+          <li
             v-for="(menuItem, index) in menuItems"
             :key="index"
+            :id="'links_' + index"
           >
-            <li>
-              <a :href="menuItem.link">
-                <i
-                  class="bx"
-                  :class="menuItem.icon || 'bx-square-rounded'"
-                />
-                <span class="links_name">{{ menuItem.name }}</span>
-              </a>
-              <span class="tooltip">{{ menuItem.tooltip || menuItem.name }}</span>
-            </li>
-          </span>
+            <a :href="menuItem.link">
+              <i
+                class="bx"
+                :class="menuItem.icon || 'bx-square-rounded'"
+              />
+              <span class="links_name">{{ menuItem.name }}</span>
+            </a>
+            <span
+              :data-target="'links_' + index"
+              class="tooltip"
+            >{{
+              menuItem.tooltip || menuItem.name
+            }}</span>
+          </li>
         </ul>
       </div>
-      
+
       <div
         v-if="isLoggedIn"
-        class="profile" 
+        class="profile"
       >
         <div class="profile-details">
           <img
@@ -129,13 +145,13 @@
         type: Boolean,
         default: true,
       },
-       menuOpenedPaddingLeftBody: {
+      menuOpenedPaddingLeftBody: {
         type: String,
-        default: '250px'
+        default: '250px',
       },
       menuClosedPaddingLeftBody: {
         type: String,
-        default: '78px'
+        default: '78px',
       },
 
       //! Menu items
@@ -273,11 +289,12 @@
     },
     data() {
       return {
-        isOpened: false
+        isOpened: false,
       }
     },
     mounted() {
       this.isOpened = this.isMenuOpen
+      this.tooltipAttached()
     },
     computed: {
       cssVars() {
@@ -297,10 +314,36 @@
       },
     },
     watch: {
-      isOpened() {
-        window.document.body.style.paddingLeft = this.isOpened && this.isPaddingLeft ? this.menuOpenedPaddingLeftBody : this.menuClosedPaddingLeftBody
-      }
-    }
+      isOpened(val) {
+        window.document.body.style.paddingLeft =
+          this.isOpened && this.isPaddingLeft
+            ? this.menuOpenedPaddingLeftBody
+            : this.menuClosedPaddingLeftBody
+      },
+    },
+    methods: {
+      tooltipAttached() {
+        const tooltips = document.querySelectorAll('.tooltip')
+        tooltips.forEach(tooltip => {
+          document.body.appendChild(tooltip)
+        })
+        document.querySelectorAll('.tooltip').forEach(tooltip => {
+          const targetID = tooltip.dataset.target
+          const target = document.querySelector(`#${targetID}`)
+          if(!target) return
+          target.addEventListener('mouseenter', () => {
+            const targetPosition = target.getBoundingClientRect()
+            if (this.isOpened) return
+            tooltip.style.top = `${targetPosition.top + window.scrollY}px`
+            tooltip.style.left = `${targetPosition.left + targetPosition.width + 20}px`
+            tooltip.classList.add('active')
+          })
+          target.addEventListener('mouseleave', () => {
+            tooltip.classList.remove('active')
+          })
+        })
+      },
+    },
   }
 </script>
 
@@ -395,10 +438,10 @@
     margin: 8px 0;
     list-style: none;
   }
-  .sidebar li .tooltip {
+   .tooltip {
     position: absolute;
-    top: -20px;
-    left: calc(100% + 15px);
+    /* top: -20px; */
+    /* left: calc(100% + 15px); */
     z-index: 3;
     background: var(--items-tooltip-color);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
@@ -411,12 +454,12 @@
     pointer-events: none;
     transition: 0s;
   }
-  .sidebar li:hover .tooltip {
+  .tooltip.active {
     opacity: 1;
     pointer-events: auto;
     transition: all 0.4s ease;
-    top: 50%;
-    transform: translateY(-50%);
+    /* top: 50%; */
+    transform: translateY(25%);
   }
   .sidebar.open li .tooltip {
     display: none;
@@ -583,8 +626,8 @@
     overflow-y: auto;
     height: calc(100% - 60px);
   }
-  #my-scroll::-webkit-scrollbar{
-    display:none;
+  #my-scroll::-webkit-scrollbar {
+    display: none;
     /* background-color: rgba(255, 255, 255, 0.2); 
     width: 10px;
     border-radius:5px  */
@@ -603,7 +646,5 @@
     .sidebar li .tooltip {
       display: none;
     }
-}
-
-
+  }
 </style>
