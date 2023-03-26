@@ -9,7 +9,7 @@
 ## Demo
 [View demo](https://akahon.github.io/vue-sidebar-menu-akahon/) | [Sandbox](https://codesandbox.io/s/misty-architecture-hyuk5?file=/src/App.vue)
 
-[![demo](https://raw.githubusercontent.com/akahon/vue-sidebar-menu-akahon/main/src/assets/img/demo.gif)](https://akahon.github.io/vue-sidebar-menu-akahon/)
+[![demo](https://drive.google.com/file/d/1_yIzrjqPom-N-aVjUHf-vomoZ3DU7Vei/view?usp=share_link)](https://akahon.github.io/vue-sidebar-menu-akahon/)
 ## Install
 
 ```bash
@@ -104,7 +104,7 @@ searchTooltip | `String` | `'Search'` | Search input tooltip
 
 Props (Parameter) | Type | Default | Description
 --------- | ---- | ------- | -----------
-profileImg | `String` | `'@/assets/img/photo.jpg'` | Profile avatar
+profileImg | `String` | `'@/assets/img/photo.png'` | Profile avatar
 profileName | `String` | `'Fayzullo Saidakbarov'` | Profile full name
 profileRole | `String` | `'Frontend vue developer'` | Profile role title
 isExitButton | `Boolean` | `true` | Enable/Disable exit button
