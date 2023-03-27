@@ -104,7 +104,7 @@ searchTooltip | `String` | `'Search'` | Search input tooltip
 
 Props (Parameter) | Type | Default | Description
 --------- | ---- | ------- | -----------
-profileImg | `String` | `'@/assets/img/photo.png'` | Profile avatar
+profileImg | `String` | `''` | Profile avatar
 profileName | `String` | `'Fayzullo Saidakbarov'` | Profile full name
 profileRole | `String` | `'Frontend vue developer'` | Profile role title
 isExitButton | `Boolean` | `true` | Enable/Disable exit button
