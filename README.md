@@ -9,7 +9,7 @@
 ## Demo
 [View demo](https://akahon.github.io/vue-sidebar-menu-akahon/) | [Sandbox](https://codesandbox.io/s/misty-architecture-hyuk5?file=/src/App.vue)
 
-[![demo](https://drive.google.com/file/d/1_yIzrjqPom-N-aVjUHf-vomoZ3DU7Vei/view?usp=share_link)](https://akahon.github.io/vue-sidebar-menu-akahon/)
+[![demo](https://raw.githubusercontent.com/akahon/vue-sidebar-menu-akahon/demo/src/assets/img/demo.gif)](https://akahon.github.io/vue-sidebar-menu-akahon/)
 ## Install
 
 ```bash
