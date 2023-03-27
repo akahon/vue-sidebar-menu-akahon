@@ -226,7 +226,7 @@
       //! Profile detailes
       profileImg: {
         type: String,
-        default: '',
+        default: require('@/assets/img/photo.png'),
       },
       profileName: {
         type: String,
