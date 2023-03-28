@@ -21,7 +21,8 @@
 
 Example:
 ```html
-<VueSidebarMenuAkahon 
+<VueSidebarMenuAkahon
+  :isUsedVueRouter="false"
   @menu-item-clicked="fnRouteTo(link)"
 />
 ```
@@ -147,7 +148,7 @@ menuFooterTextColor | `String` | `'#fff'` |
 
 Event | Output |  Description
 --------- | ---- | -----------
-@menu-item-clcked | item-link | Emitted when the menu item has been clicked
+@menu-item-clcked | item-link | If isUsedVueRouter=false, emitted when the menu item has been clicked
 @button-exit-clicked | - | Emitted when the exit button has been clicked
 @search-input-emit | String | Emitted when user types in the search input
 
