@@ -61,7 +61,9 @@
             <span
               data-target="links_search"
               class="tooltip"
-            >{{ searchTooltip }}</span>
+            >{{
+              searchTooltip
+            }}</span>
           </li>
 
           <li
@@ -69,7 +71,21 @@
             :key="index"
             :id="'links_' + index"
           >
-            <a :href="menuItem.link">
+            <router-link
+              v-if="isUsedVueRouter"
+              :to="menuItem.link"
+            >
+              <i
+                class="bx"
+                :class="menuItem.icon || 'bx-square-rounded'"
+              />
+              <span class="links_name">{{ menuItem.name }}</span>
+            </router-link>
+            <a
+              v-else
+              @click.stop.prevent="$emit('menuItemClcked', menuItem.link)"
+              :href="menuItem.link"
+            >
               <i
                 class="bx"
                 :class="menuItem.icon || 'bx-square-rounded'"
@@ -128,6 +144,10 @@
       isMenuOpen: {
         type: Boolean,
         default: true,
+      },
+      isUsedVueRouter: {
+        type: Boolean,
+        default: false,
       },
       menuTitle: {
         type: String,
@@ -330,12 +350,14 @@
         document.querySelectorAll('.tooltip').forEach(tooltip => {
           const targetID = tooltip.dataset.target
           const target = document.querySelector(`#${targetID}`)
-          if(!target) return
+          if (!target) return
           target.addEventListener('mouseenter', () => {
             const targetPosition = target.getBoundingClientRect()
             if (this.isOpened) return
             tooltip.style.top = `${targetPosition.top + window.scrollY}px`
-            tooltip.style.left = `${targetPosition.left + targetPosition.width + 20}px`
+            tooltip.style.left = `${
+              targetPosition.left + targetPosition.width + 20
+            }px`
             tooltip.classList.add('active')
           })
           target.addEventListener('mouseleave', () => {
@@ -359,6 +381,9 @@
   }
   body {
     transition: all 0.5s ease;
+  }
+  .name_job {
+    margin-bottom: 5px;
   }
   .menu-logo {
     width: 30px;
@@ -438,7 +463,7 @@
     margin: 8px 0;
     list-style: none;
   }
-   .tooltip {
+  .tooltip {
     position: absolute;
     /* top: -20px; */
     /* left: calc(100% + 15px); */
@@ -526,6 +551,37 @@
   }
   .sidebar li a:hover .links_name,
   .sidebar li a:hover i {
+    transition: all 0.5s ease;
+    color: var(--bg-color);
+  }
+  .sidebar li router-link {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    border-radius: 12px;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    background: var(--bg-color);
+  }
+  .sidebar li router-link:hover {
+    background: var(--menu-items-hover-color);
+  }
+  .sidebar li router-link .links_name {
+    color: var(--menu-items-text-color);
+    font-size: 15px;
+    font-weight: 400;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.4s;
+  }
+  .sidebar.open li router-link .links_name {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .sidebar li router-link:hover .links_name,
+  .sidebar li router-link:hover i {
     transition: all 0.5s ease;
     color: var(--bg-color);
   }

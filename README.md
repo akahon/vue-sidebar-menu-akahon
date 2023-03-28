@@ -1,15 +1,33 @@
 # vue-sidebar-menu-akahon
 
-[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
-[![Latest Version on NPM](https://img.shields.io/npm/v/vue-sidebar-menu-akahon.svg?style=flat-square)](https://www.npmjs.com/package/vue-sidebar-menu-akahon)
-[![npm](https://img.shields.io/npm/dt/vue-sidebar-menu-akahon.svg?style=flat-square)](https://www.npmjs.com/package/vue-sidebar-menu-akahon)
 [![Vue 2.x](https://img.shields.io/badge/vue-2.x-brightgreen.svg?style=flat-square)](https://vuejs.org)
+[![Latest Version on NPM](https://img.shields.io/npm/v/vue-sidebar-menu-akahon.svg?style=flat-square&color)](https://www.npmjs.com/package/vue-sidebar-menu-akahon)
+[![npm](https://img.shields.io/npm/dt/vue-sidebar-menu-akahon.svg?style=flat-square)](https://www.npmjs.com/package/vue-sidebar-menu-akahon)
+![](https://img.shields.io/github/stars/akahon/vue-sidebar-menu-akahon.svg?style=flat-square&color) 
+![](https://img.shields.io/github/forks/akahon/vue-sidebar-menu-akahon.svg?style=flat-square&color)
+[![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 
-> A Vue.js sidebar menu component. 
+> A Vue.js V2 sidebar menu component. 
 ## Demo
 [View demo](https://akahon.github.io/vue-sidebar-menu-akahon/) | [Sandbox](https://codesandbox.io/s/misty-architecture-hyuk5?file=/src/App.vue)
 
 [![demo](https://raw.githubusercontent.com/akahon/vue-sidebar-menu-akahon/demo/src/assets/img/demo.gif)](https://akahon.github.io/vue-sidebar-menu-akahon/)
+
+## Updates
+
+> v1.0.0 
+\- Added new props `isUsedVueRouter` boolean param by default `false`. If you are using vue-router, set the value to true. 
+\- Otherwise, when clicking on a menu item the `<a>` tag will be used by default and emitted the `@menu-item-clicked` event with the value of `item-link`. 
+
+Example:
+```html
+<VueSidebarMenuAkahon 
+  @menu-item-clicked="fnRouteTo(link)"
+/>
+```
+
+------------
+
 ## Install
 
 ```bash
@@ -52,7 +70,7 @@ Vue.component('vue-sidebar-menu-akahon', VueSidebarMenuAkahon);
   }
 </script>
 ```
-## Project setup
+<!-- ## Project setup
 ```
 npm install
 ```
@@ -70,7 +88,7 @@ npm run build
 ### Lints and fixes files
 ```
 npm run lint
-```
+``` -->
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
@@ -82,6 +100,7 @@ You can use icons from [boxicons](https://boxicons.com/)
 Props (Parameter) | Type | Default | Description
 --------- | ---- | ------- | -----------
 isMenuOpen | `Boolean` | `true` | Open/Close menu
+isUsedVueRouter | `Boolean` | `false` | When clicking on a menu item, <vue-router> is used instead of the <a> tag.
 menuTitle | `String` | `'Akahon'` | Menu title 
 menuLogo | `String` | - | Logo
 menuIcon | `String` | `'bxl-c-plus-plus'` | Icon (boxicons)
@@ -128,8 +147,9 @@ menuFooterTextColor | `String` | `'#fff'` |
 
 Event | Output |  Description
 --------- | ---- | -----------
-button-exit-clicked | - | Emitted when the exit button has been clicked
-search-input-emit | String | Emitted when user types in the search input
+@menu-item-clcked | item-link | Emitted when the menu item has been clicked
+@button-exit-clicked | - | Emitted when the exit button has been clicked
+@search-input-emit | String | Emitted when user types in the search input
 
 #### Thanks for design
 [Prem Shahi](https://www.codinglabweb.com/2021/04/responsive-side-navigation-bar-in-html.html)
