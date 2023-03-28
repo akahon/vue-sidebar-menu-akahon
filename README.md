@@ -16,8 +16,8 @@
 ## Updates
 
 > v1.0.0 
-\- Added new props `isUsedVueRouter` boolean param by default `false`. If you are using vue-router, set the value to true. 
-\- Otherwise, when clicking on a menu item the `<a>` tag will be used by default and emitted the `@menu-item-clicked` event with the value of `item-link`. 
+- Added new props `isUsedVueRouter` boolean param by default `false`. If you are using vue-router, set the value to true. 
+- Otherwise, when clicking on a menu item the `<a>` tag will be used by default and emitted the `@menu-item-clicked` event with the value of `item-link`. 
 
 Example:
 ```html
@@ -100,7 +100,7 @@ You can use icons from [boxicons](https://boxicons.com/)
 Props (Parameter) | Type | Default | Description
 --------- | ---- | ------- | -----------
 isMenuOpen | `Boolean` | `true` | Open/Close menu
-isUsedVueRouter | `Boolean` | `false` | When clicking on a menu item, <vue-router> is used instead of the <a> tag.
+isUsedVueRouter | `Boolean` | `false` | When clicking on a menu item, if "true", "vue-router" is used instead of the "a" tag.
 menuTitle | `String` | `'Akahon'` | Menu title 
 menuLogo | `String` | - | Logo
 menuIcon | `String` | `'bxl-c-plus-plus'` | Icon (boxicons)
