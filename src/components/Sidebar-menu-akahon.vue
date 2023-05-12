@@ -454,6 +454,7 @@
   }
   .sidebar .nav-list {
     margin-top: 20px;
+    padding-left: 0;
     /* margin-bottom: 60px; */
     /* height: 100%; */
     /* min-height: min-content; */
